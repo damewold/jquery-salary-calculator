@@ -19,8 +19,12 @@ let formInfoObject={
     annualSalary:'Annual Salary'
 };
 
-function collectFormInfo (){
+function collectFormInfo (formInfoObject){
  console.log('in collectFormInfo')
+ //collect form info 
+for (i=0;i<formInfoArray.length;i++){
+   formInfoArray.push(formInfoObject);
+};
 
 
 };
