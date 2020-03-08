@@ -7,10 +7,12 @@ let idNumber=$('#idNumber');
 let jobTitle=$('#jobTitle');
 let annualSalary=$('#annualSalary');
 
+
 function onReady(){
     //check jquery.js sourced correctly
     console.log('Hello!');
-    collectFormInfo();
+     collectFormInfo();
+     displayFormInfo();
     $('#addButton').on('click', collectFormInfo());
     $('#addButton').on('click', displayFormInfo());
 
@@ -31,20 +33,38 @@ function collectFormInfo (firstName,lastName, idNumber, jobTitle, annualSalary){
 };
 
  //collect form info 
-for (i=0;i<formInfoArray.length;i++){
-   formInfoArray.push(formInfoObject);
-};
+ formInfoArray.push(formInfoObject);
+
 //empty out the values 
- $('#firstName').val(' ');
- $('#lastName').val(' ');
- $('#idNumber').val(' ');
- $('#jobTitle').val(' ');
- $('#annualSalary').val(' ');
+ 
 
 };
 
 function displayFormInfo(){
     console.log('in displayFormInfo');
-//
+//empty and append the header
+let header= $('<h1>salary Calculator</h1>')
+$('.container').append(header);
+//append the table heading
+let table = $('<table></table>');
+table.append('<thead><tr><th>First Name</th><th>Last Name</th><th>ID Name</th><th>Job Title</th><th>Annual Salary</th></thead>');
+//append the table body element
+let tbody = $('<tbody id="tableBody"></tbody>');
+    table.append(tbody);
+//empty the table body and append row
+$(tbody).empty();
+let row = $('<tr><td></td></tr>')
+row.empty();
+for(i=0;i<formInfoArray.length;i++){
+console.log('in displayFormInfo');
+
+tbody.append(`<tr><td>${formInfoArray[i].firstName}</td>,
+                       <td>${formInfoArray[i].lastName}</td>,
+                       <td>${formInfoArray[i].idNumber}</td>,
+                       <td>${formInfoArray[i].jobTitle}</td>,
+                       <td>${formInfoArray[i].annualSalary}</td>
+                       </tr>`)
+};
 
 };
+
