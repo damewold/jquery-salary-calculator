@@ -45,5 +45,6 @@ for (i=0;i<formInfoArray.length;i++){
 
 function displayFormInfo(){
     console.log('in displayFormInfo');
+//
 
 };
