@@ -11,8 +11,7 @@ let annualSalary=$('#annualSalary');
 function onReady(){
     //check jquery.js sourced correctly
     console.log('Hello!');
-     collectFormInfo();
-     displayFormInfo();
+     
     $('#addButton').on('click', collectFormInfo());
     $('#addButton').on('click', displayFormInfo());
 
@@ -35,7 +34,12 @@ function collectFormInfo (firstName,lastName, idNumber, jobTitle, annualSalary){
  //collect form info 
  formInfoArray.push(formInfoObject);
 
-//empty out the values 
+//empty out the values
+$('#firstName').val(' '),
+$('#lastName').val(' '),
+$('#idNumber').val(' '),
+$('#jobTitle').val(' '),
+$('#annualSalary').val(' ')
  
 
 };
@@ -44,12 +48,24 @@ function displayFormInfo(){
     console.log('in displayFormInfo');
 //empty and append the header
 let header= $('<h1>salary Calculator</h1>')
-$('.container').append(header);
-//append the table heading
+$('#headContainer').append(header);
+
+//empty the container
+$('#container').empty();
+//append the table to the container
 let table = $('<table></table>');
-table.append('<thead><tr><th>First Name</th><th>Last Name</th><th>ID Name</th><th>Job Title</th><th>Annual Salary</th></thead>');
+$('#container').append(table);
+//and then append the table headeding 
+table.append(`<thead><tr>
+                     <th>First Name</th>,
+                     <th>Last Name</th>,
+                     <th>ID Name</th>,
+                     <th>Job Title</th>,
+                     <th>Annual Salary</th>,
+                     </tr>
+                     </thead>`);
 //append the table body element
-let tbody = $('<tbody id="tableBody"></tbody>');
+let tbody = $('<tbody><tr></tr></tbody>');
     table.append(tbody);
 //empty the table body and append row
 $(tbody).empty();
@@ -58,12 +74,13 @@ row.empty();
 for(i=0;i<formInfoArray.length;i++){
 console.log('in displayFormInfo');
 
-tbody.append(`<tr><td>${formInfoArray[i].firstName}</td>,
-                       <td>${formInfoArray[i].lastName}</td>,
-                       <td>${formInfoArray[i].idNumber}</td>,
-                       <td>${formInfoArray[i].jobTitle}</td>,
-                       <td>${formInfoArray[i].annualSalary}</td>
-                       </tr>`)
+tbody.append(`<tr>
+                <td>${formInfoArray[i].firstName}</td>,
+                <td>${formInfoArray[i].lastName}</td>,
+                <td>${formInfoArray[i].idNumber}</td>,
+                <td>${formInfoArray[i].jobTitle}</td>,
+                <td>${formInfoArray[i].annualSalary}</td>,
+                </tr>`)
 };
 
 };
