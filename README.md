@@ -1,9 +1,15 @@
-# Project Name
+![MIT LICENSE](https://img.shields.io/github/license/scottbromander/the_marketplace.svg?style=flat-square)
+![REPO SIZE](https://img.shields.io/github/repo-size/scottbromander/the_marketplace.svg?style=flat-square)
+![TOP_LANGUAGE](https://img.shields.io/github/languages/top/scottbromander/the_marketplace.svg?style=flat-square)
+![FORKS](https://img.shields.io/github/forks/scottbromander/the_marketplace.svg?style=social)
 
-[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
+# Employee Salary Calculator
 
 ## Description
+_Duration: 12 hours_
 
-Your project description goes here. What problem did you solve? How did you solve it?
+This project aims at developing an application that records employee salaries up to report monthly costs. Using the information provided through the inputs, it will calculate and report the total monthly costs. 
 
-Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).
+The application  takes in five inputs. These are _employee first name, last name, ID number, job title, annual salary_.
+
+It will also signal when the total monthly cost exceeds $20,000.
