@@ -11,7 +11,7 @@ let annualSalary=$('#annualSalary');
 function onReady(){
     //check jquery.js sourced correctly
     console.log('Hello!');
-    //  displayTableHead ();
+        
     $('#button').on('click', collectFormInfo);
     $('#button').on('click', displayFormInfo);
     
@@ -47,7 +47,9 @@ console.log('Objects in formInfoArray', formInfoArray)
 
 function displayFormInfo(){
     console.log('in displayFormInfo');
+//prevent page from refreshing due to form tag
     event.preventDefault();  
+//set 
     let table=$('#containerTable');
     let tbody = $('<tbody id="containerTableBody"></tbody>');
     table.append(tbody);
@@ -67,15 +69,25 @@ $(tbody).empty();
 
 };
 }
-
+//create a function that will prevent addition of emppty objects
 function onlyDisplay(){
       if(formInfoArray.length>0){
         displayFormInfo();
       };
 
     };
+//create a function for total monthly cost
 
-
+function totalMonthly(){
+ ('in totalMonthly');
+ let totalMonthlyCost=0
+ for(i=0;i<formInfoArray.length;i++){
+     totalMonthlyCost+=formInfoArray[i].annualSalary;
+ }
+ let totalMonthlySum=('#totalMonthly');
+ totalMonthlySum.empty();
+ totalMonthlySum.append(totalMonthlyCost);
+};
 
 
 
