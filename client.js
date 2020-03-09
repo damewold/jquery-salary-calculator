@@ -14,6 +14,7 @@ function onReady(){
         
     $('#button').on('click', collectFormInfo);
     $('#button').on('click', displayFormInfo);
+  
     
 
 };
@@ -59,38 +60,51 @@ $(tbody).empty();
   let row = $('<tr><td></td></tr>')
   row.empty();
   for (i=0;i<formInfoArray.length;i++){
+      if(formInfoArray.length>0){    
   tbody.append(`<tr>
                 <td>${formInfoArray[i].firstName}</td>,
                 <td>${formInfoArray[i].lastName}</td>,
                 <td>${formInfoArray[i].idNumber}</td>,
                 <td>${formInfoArray[i].jobTitle}</td>,
                 <td>${formInfoArray[i].annualSalary}</td>
+                <td><button id="delButton">Delete</button></td>
                 </tr>`);
+      };
 
 };
 }
 //create a function that will prevent addition of emppty objects
-function onlyDisplay(){
-      if(formInfoArray.length>0){
-        displayFormInfo();
-      };
+// function onlyDisplay(){
+//       if(formInfoArray.length>0){
+//         displayFormInfo();
+//       };
 
-    };
+//     };
 //create a function for total monthly cost
 
 function totalMonthly(){
  ('in totalMonthly');
+ //initialize total Monthly salary
+ let totalMonthlySum=$('#totalMonthly');
+ //set total Monthly cost equal to zero
  let totalMonthlyCost=0
+ //write for loop with a conditional
  for(i=0;i<formInfoArray.length;i++){
-     totalMonthlyCost+=formInfoArray[i].annualSalary;
- }
- let totalMonthlySum=('#totalMonthly');
+     totalMonthlyCost+=Number(formInfoArray[i].annualSalary/12);
+     if(totalMonthlyCost>20000){
+         $('#totalMonthly').css("background-color","red");
+     };
+ };
+ //empty totalMonthlySum
  totalMonthlySum.empty();
+ //append totalMonthlyCost to totalMonthlySum
  totalMonthlySum.append(totalMonthlyCost);
 };
 
-
-
+//delete a whole row function
+ $(document).on('click', '#delButton', function(e){
+    $(this).closest('tr').remove()
+ })
 
 
 

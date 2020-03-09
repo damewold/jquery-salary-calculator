@@ -1,19 +1,65 @@
+body,html{
+
+
+}
+
 header{
     background-color: cyan;
     color: red;
 }
 
-.form{
+form{
     width: 100%;
+
 }
+table{
+    border-collapse: collapse;
+    width:100%;
+}
+th, td {
+    text-align: left;
+    padding: 8px;
+  }
+  tr:nth-child(even){
+    background-color: #f2f2f2;
+  }
+  
+  th {
+    background-color:cyan;
+    color:red;
+    font-size: 18px;
+    font:bold;
+  }
 
 #containerTable{
     width: 100%;
 }
 
-#containerTableHead{
-    background-color: silver;
-    color:red;
-    text-align: justify;
+input {
+    margin: 20px;
+    font-size: 20px;
+    width: 250px;
+  }
+
+#button,#delButton{
+    margin: 20px;
+    background-color: rgb(37, 7, 7); 
+    border: none;
+    color: white;
+    padding: 10px 12px;
+    text-align: center;
+    text-decoration:none;
+    display: inline-block;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+
+}
+
+#toatlMonthly{
+    background-color: cyan;
+    font:red;
+    font-weight: bold;
+    
 
 }
