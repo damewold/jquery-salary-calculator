@@ -12,8 +12,9 @@ function onReady(){
     //check jquery.js sourced correctly
     console.log('Hello!');
      
-    $('#addButton').on('click', collectFormInfo());
-    $('#addButton').on('click', displayFormInfo());
+    $('#button').on('click', collectFormInfo);
+    $('#button').on('click', displayFormInfo);
+    
 
 };
 
@@ -21,67 +22,93 @@ function onReady(){
 
 let formInfoArray =[];
 
-function collectFormInfo (firstName,lastName, idNumber, jobTitle, annualSalary){
- console.log('in collectFormInfo: ',firstName,lastName, idNumber, jobTitle, annualSalary );
- let formInfoObject={
+function collectFormInfo ({firstName,lastName,idNumber,jobTitle,annualSalary}){
+ console.log('in collectFormInfo: ',{firstName,lastName,idNumber,jobTitle,annualSalary});
+ const formInfoObject={
     firstName:$('#firstName').val(),
      lastName:$('#lastName').val(),
      idNumber:$('#idNumber').val(),
      jobTitle:$('#jobTitle').val(),
- annualSalary:$('#annualSalary').val(),
+ annualSalary:$('#annualSalary').val()
 };
-
  //collect form info 
  formInfoArray.push(formInfoObject);
 
 //empty out the values
-$('#firstName').val(' '),
-$('#lastName').val(' '),
-$('#idNumber').val(' '),
-$('#jobTitle').val(' '),
+$('#firstName').val(' ')
+$('#lastName').val(' ')
+$('#idNumber').val(' ')
+$('#jobTitle').val(' ')
 $('#annualSalary').val(' ')
- 
+console.log('Objects in formInfoArray', formInfoArray)
 
 };
 
 function displayFormInfo(){
-    console.log('in displayFormInfo');
-//empty and append the header
-let header= $('<h1>salary Calculator</h1>')
-$('#headContainer').append(header);
-
-//empty the container
-$('#container').empty();
-//append the table to the container
-let table = $('<table></table>');
-$('#container').append(table);
-//and then append the table headeding 
-table.append(`<thead><tr>
-                     <th>First Name</th>,
-                     <th>Last Name</th>,
-                     <th>ID Name</th>,
-                     <th>Job Title</th>,
-                     <th>Annual Salary</th>,
-                     </tr>
-                     </thead>`);
-//append the table body element
-let tbody = $('<tbody><tr></tr></tbody>');
+    let header = $('<h1>Salary Calculator</h1>');
+    $('#container').append(header);
+  
+    let table = $('<table></table>');
+    table.append('<thead><tr><th>First Name</th><th>Last Name</th><th>ID Number</th><th>Job Title</th><th>Annual Salary</th></thead>');
+  
+    let tbody = $('<tbody id="containerTableBody"></tbody>');
     table.append(tbody);
-//empty the table body and append row
-$(tbody).empty();
-let row = $('<tr><td></td></tr>')
-row.empty();
-for(i=0;i<formInfoArray.length;i++){
-console.log('in displayFormInfo');
+  
+    $('#container').append(table);
 
-tbody.append(`<tr>
+//Display the rows on the DOM
+$(tbody).empty();
+  let row = $('<tr><td></td></tr>')
+  row.empty();
+  for (i=0;i<formInfoArray.length;i++){
+  tbody.append(`<tr>
                 <td>${formInfoArray[i].firstName}</td>,
                 <td>${formInfoArray[i].lastName}</td>,
                 <td>${formInfoArray[i].idNumber}</td>,
                 <td>${formInfoArray[i].jobTitle}</td>,
-                <td>${formInfoArray[i].annualSalary}</td>,
-                </tr>`)
-};
+                <td>${formInfoArray[i].annualSalary}</td>
+                </tr>`);
 
 };
+}
+
+function onlyDisplay(){
+      if(formInfoArray.length>0){
+        displayFormInfo();
+      };
+    };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

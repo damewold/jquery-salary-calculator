@@ -2,3 +2,18 @@ header{
     background-color: cyan;
     color: red;
 }
+
+.form{
+    width: 100%;
+}
+
+#containerTable{
+    width: 100%;
+}
+
+#containerTableHead{
+    background-color: silver;
+    color:red;
+    text-align: justify;
+
+}
