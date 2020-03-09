@@ -11,7 +11,7 @@ let annualSalary=$('#annualSalary');
 function onReady(){
     //check jquery.js sourced correctly
     console.log('Hello!');
-     
+    //  displayTableHead ();
     $('#button').on('click', collectFormInfo);
     $('#button').on('click', displayFormInfo);
     
@@ -43,20 +43,16 @@ $('#annualSalary').val(' ')
 console.log('Objects in formInfoArray', formInfoArray)
 
 };
+//write displayFormInfo function
 
 function displayFormInfo(){
-    let header = $('<h1>Salary Calculator</h1>');
-    $('#container').append(header);
-  
-    let table = $('<table></table>');
-    table.append('<thead><tr><th>First Name</th><th>Last Name</th><th>ID Number</th><th>Job Title</th><th>Annual Salary</th></thead>');
-  
+    console.log('in displayFormInfo');
+    event.preventDefault();  
+    let table=$('#containerTable');
     let tbody = $('<tbody id="containerTableBody"></tbody>');
     table.append(tbody);
-  
-    $('#container').append(table);
-
-//Display the rows on the DOM
+    $('.container').append(table);
+    //Display the rows on the DOM
 $(tbody).empty();
   let row = $('<tr><td></td></tr>')
   row.empty();
@@ -76,6 +72,7 @@ function onlyDisplay(){
       if(formInfoArray.length>0){
         displayFormInfo();
       };
+
     };
 
 
