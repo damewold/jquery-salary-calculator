@@ -13,3 +13,12 @@ This project aims at developing an application that records employee salaries up
 The application  takes in five inputs. These are _employee first name, last name, ID number, job title, annual salary_.
 
 It will also signal when the total monthly cost exceeds $20,000.
+
+## Built With
+-HTML,CSS
+-Javascript
+
+## Acknowledgement
+
+Thanks to Prime Digital Academy who equipped and helped me to make this application a reality.
+
