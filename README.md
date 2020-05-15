@@ -15,9 +15,9 @@ The application  takes in five inputs. These are _employee first name, last name
 It will also signal when the total monthly cost exceeds $20,000.
 
 ## Built With
-  +HTML
-  +CSS
-  +Javascript
+- HTML
+- CSS
+- Javascript
 
 ## Acknowledgement
 
